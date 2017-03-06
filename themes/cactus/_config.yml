@@ -27,10 +27,8 @@ customize:
         url: /images/apple-touch-icon.png
         gravator: false
     social_links:
-        github: http://github.com/probberechts/cactus-dark
-        twitter: /
-        facebook: /
-        linkedin: /
+        github: https://github.com/pollyfat
+        weibo: http://weibo.com/u/3398803332/home?wvr=5&lf=reg
     post_count: 5
     highlight: rainbow
 
