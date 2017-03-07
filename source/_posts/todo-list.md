@@ -5,3 +5,4 @@ tags:
 ---
 
 - [] Add hexo post template to qinci's MarkdownEditors
+- [] Add tag for my blog
