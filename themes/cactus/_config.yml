@@ -4,8 +4,6 @@ nav:
   Writing: /archives/
   Tags: /tag/
 
-projects_url: http://github.com/probberechts
-
 customize:
     gravatar:
         email: 
