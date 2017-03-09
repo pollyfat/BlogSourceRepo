@@ -2,7 +2,9 @@ nav:
   Home: /
   About: /about/
   Writing: /archives/
-  Tags: /tag/
+  Projects: http://github.com/probberechts
+
+projects_url: http://github.com/probberechts
 
 customize:
     gravatar:
@@ -19,14 +21,16 @@ customize:
         url: /images/favicon.ico
         gravatar: false
       android:
-        url: /images/android-chrome-144x144.png
+        url: /images/favicon-192x192.png
         gravator: false
       apple:
         url: /images/apple-touch-icon.png
         gravator: false
     social_links:
-        github: https://github.com/pollyfat
-        weibo: http://weibo.com/u/3398803332/home?wvr=5&lf=reg
+        github: http://github.com/probberechts/cactus-dark
+        twitter: /
+        facebook: /
+        linkedin: /
     post_count: 5
     highlight: rainbow
 
