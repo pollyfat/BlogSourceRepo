@@ -44,9 +44,24 @@ result:
     +--------+  request   +--------+
     | client | ---------> | server |
     +--------+            +--------+
+
 #### Attributes
 
     {attribute: value}
+
+#### Samples
+
+Table:
+[VER|NMETHODS|METHODS||1|1|1 to 255]
+
+result:
+
+    +-----+----------+----------+
+    | VER | NMETHODS |  METHODS |
+    +-----+----------+----------+
+    |  1  |     1    | 1 to 255 |
+    +-----+----------+----------+
+
    --------------
     
    > [官方文档](http://bloodgate.com/perl/graph/manual/index.html)
