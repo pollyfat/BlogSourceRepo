@@ -1,6 +1,4 @@
 ---
-title: RPi 记录
-date: 2017-03-23 21:08:00
 tags: RPi
 ---
 -----------------------------
@@ -9,7 +7,9 @@ tags: RPi
 解决办法：在SD卡根目录下建一个名为ssh的空白文件。
 
 # ssh
+
 ## 用nmap查看RPi的IP
+
 ### 先查看本机IP
 - Linux
 $hostname -I
@@ -26,10 +26,12 @@ cmd->ipconfig
 默认密码：raspberry
 
 # Open VNC(Virtual network computin)
+
 ## Check update
 ``` sudo apt-get update
 sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
 ```
+
 ## Enabling VNC server
 ` sudo raspi-config`
 and 
