@@ -27,6 +27,11 @@ cmd->ipconfig
 ` ssh pi@<pi-ip>`
 默认密码：raspberry
 
+# WIFI
+` sudo iwlist wlan0 scan`
+` ESSID:"Wifi-name"`
+` wpa_passphrase "Wifi-name" "Wifi-pwd"`
+
 # Open VNC(Virtual network computin)
 
 ## Check update
@@ -43,3 +48,20 @@ and
 ## VNC Viewer
 - [download](https://www.realvnc.com/download/viewer/)
 - Enter Pi's username & pwd
+
+# Shadowsocks
+## 安装
+```
+apt-get install python-pip python-gevent python-m2crypto // 下载pip
+pip install shadowsocks // 下载ss
+
+vi/nano /etc/shadowsocks.json // 用vi或nano修改配置文件（还是vi好用啊...
+
+nohup ssserver -c /etc/shadowsocks.json & // 启动
+```
+
+## 设置自启动
+```
+vi /etc/rc.local
+```
+add `nohup ssserver -c /etc/shadowsocks.json &` before exit 
