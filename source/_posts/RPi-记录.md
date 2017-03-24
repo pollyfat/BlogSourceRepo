@@ -17,10 +17,12 @@ $hostname -I
 系统偏好设置->网络->右边状态信息里
 - Windows
 cmd->ipconfig
+
 ### 用nmap查看
 ` nmap -sn your-ip/24`
+
 ## 链接
-` ssh pi@<pi-ip>
+` ssh pi@<pi-ip>`
 默认密码：raspberry
 
 # Open VNC(Virtual network computin)
@@ -33,6 +35,7 @@ sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
 and 
 - Navigate to **Interfacing Options**
 - **VNC**->Yes
+
 ## VNC Viewer
 - [download](https://www.realvnc.com/download/viewer/)
 - Enter Pi's username & pwd
