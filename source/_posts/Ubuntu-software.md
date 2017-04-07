@@ -25,3 +25,20 @@ Find the line:
 username:x:some-number:some-number:Your-name:/home/username:/bin/bash
 ``
 and replace bash with zsh
+
+# Rime
+# Shadowsocks
+# Git
+## config
+```
+git config --global user.email "my-email"
+git config --global user.name "my-name"
+```
+## Use ssh
+```
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+ssh-keygen -t rsa
+```
+and add the new SSH key to github
+
