@@ -15,6 +15,7 @@ tags: Util
  set autoindent //自动对齐
  set tabstop=4 //tab 键为4个空格
  ```
+ 如果出現`sorry,the command is not ...`,可能是因爲沒有安裝Vim，用`sudo apt-get -y install vim`安裝一下就好。
 - 命令
  ```
  . //重复上一次操作
