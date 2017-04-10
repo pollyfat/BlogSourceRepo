@@ -48,3 +48,15 @@ tags: Util
  :new 打开新视窗 
  :w file_name // 另存为
 ```
+
+# DON'T
+
+在RPi里用了下Vim，发现方向键和delete不能用。后来查了发现vi里压根不希望你用方向键。QAQ
+方向：
+` H = Left, J = up, K = down, L = right`
+Delete:
+``` x = Deletes the charecter **under** the cursor
+X = Deletes the charecter **before** the cursor
+dw = Deletes from the cursor **to the next word**
+dd = Deletes the **line** the cursor is on.
+

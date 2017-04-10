@@ -49,6 +49,10 @@ and
 - [download](https://www.realvnc.com/download/viewer/)
 - Enter Pi's username & pwd
 
+## 遇到的坑
+### error opening security policy file /usr/X11R6/lib/X11/xserver/SecurityPolicy
+启动服务`vncserver`后仍然无法打开链接，查看log发现：
+` error opening security policy file /usr/X11R6/lib/X11/xserver/SecurityPolicy `
 # Shadowsocks
 ## 安装
 ```
