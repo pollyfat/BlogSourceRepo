@@ -1,7 +1,7 @@
 ---
 title: 常用正则
 date: 2017-4-13 18:25:00
-tag: util
+tags: util
 ---
 - 查找中文
 ```
