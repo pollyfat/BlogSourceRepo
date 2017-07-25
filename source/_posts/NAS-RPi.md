@@ -32,3 +32,7 @@ sudo vi /etc/fstab
 ' cd /mnt/jelly '
 ' ls '
 
+## Issues
+### 出现'mount: wrong fs type, bad option, bad superblock on /dev/sda1,missing codepage or helper program, or other error'
+
+上次没umount成功硬拔的...出问题了？？？
