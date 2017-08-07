@@ -46,6 +46,7 @@ to the bottom
 # 安装samba
 之前还装了miniDLNA，但是没怎么用，就直接通过samba打开视频了。刚看到好像miniDLNA的速度要比samba快很多，还以为是因为路由器老旧才慢...有空再弄吧
 ## 安装
+o.睡先
 `sudo apt-get install samba samba-common-bin`
 
 ## 配置
@@ -188,4 +189,141 @@ sudo aria2c --conf-path=/etc/aria2/aria2.conf -D
 
 ## 配置开机自启
 
-..睡先
+### 编辑配置文件/etc/init.d/aria2c
+
+```
+
+#!/bin/sh 
+### BEGIN INIT INFO 
+# Provides:          aria2 
+# Required-Start:    $remote_fs $network 
+# Required-Stop:     $remote_fs $network 
+# Default-Start:     2 3 4 5 
+# Default-Stop:      0 1 6 
+# Short-Description: Aria2 Downloader 
+### END INIT INFO 
+case "$1" in 
+	start) 
+		echo "Starting aria2c..." 
+		sudo -u pi aria2c --conf-path=/etc/aria2/aria2.conf -D 
+		;;
+	stop) 
+		echo "Stopping aria2c..." 
+		killall aria2c 
+		;; 
+	restart) 
+	$0 stop && sleep 3 && $0 start 
+	;; 
+esac 
+exit 
+```
+
+### 设置文件权限
+```
+sudo chmod +x /etc/init.d/aria2c
+```
+
+### 设置开机自启
+```
+sudo update-rc.d aria2c defaults
+```
+
+# Nginx
+
+## 安装
+```
+mkdir ~/Nginx && cd Nginx/ 
+#Openssl补丁 
+git clone https://github.com/cloudflare/sslconfig.git 
+wget -O openssl.tar.gz -c https://github.com/openssl/openssl/archive/OpenSSL_1_0_2k.tar.gz 
+tar zxvf openssl.tar.gz 
+mv openssl-OpenSSL_1_0_2k/ openssl/ 
+cd openssl/ 
+patch -p1 < ../sslconfig/patches/openssl__chacha20_poly1305_draft_and_rfc_ossl102j.patch 
+cd ../ 
+
+#下载最新Nginx 
+wget -c http://nginx.org/download/nginx-1.12.0.tar.gz 
+tar zxvf nginx-1.12.0.tar.gz 
+cd nginx-1.12.0/ 
+
+#安装 PCRE 正则依赖库 
+sudo apt install libpcre3 libpcre3-dev 
+./configure --with-openssl=../openssl --user=pi --group=pi --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_v2_module --with-http_gzip_static_module --with-http_sub_module 
+#configure无错误后进行编译 
+make 
+
+sudo make install 
+sudo ln -s /usr/local/nginx/sbin/nginx /usr/local/sbin/
+```
+
+## 配置
+
+```
+sudo vi /usr/local/nginx/conf/nginx.conf
+```
+
+## 安装Aria2 WebUI
+
+```
+git clone https://github.com/ziahamza/webui-aria2.git /usr/local/nginx/html
+```
+
+## 测试 & 运行
+
+```
+#测试配置是否正确 
+sudo nginx -t 
+#启动Nginx 
+sudo nginx 
+#重载Nginx 
+sudo nginx -s reload 
+#停止Nginx 
+sudo nginx -s stop
+```
+
+## 开机自启
+
+### 编辑配置文件 /etc/init.d/nginx
+
+```
+#!/bin/sh 
+### BEGIN INIT INFO 
+# Provides:          nginx
+# Required-Start:    $remote_fs $network 
+# Required-Stop:     $remote_fs $network 
+# Default-Start:     2 3 4 5 
+# Default-Stop:      0 1 6 \
+# Short-Description: Nginx Server 
+### END INIT INFO 
+case "$1" in 
+	start) 
+		echo "Starting Nginx..." 
+		sudo -u pi nginx 
+		;; 
+	stop) 
+		echo "Stopping Nginx..." 
+		sudo nginx -s stop 
+		;; 
+	restart) 
+		$0 stop && sleep 3 && $0 start 
+		;; 
+esac 
+exit
+```
+
+### 设置权限
+```
+sudo chmod +x /etc/init.d/nginx
+```
+
+### 添加
+```
+sudo update-rc.d nginx defaults
+```
+
+# Ngrok
+
+Ngrok可以将局域网端口映射到公网，相同服务还有花生壳
+
+
