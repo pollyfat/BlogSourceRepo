@@ -27,3 +27,9 @@ localedef -c -f UTF-8 -i en_US en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 ```
 但是还没确认是否生效 XD
+
+## systemctl not found
+
+VPS装的CentOs6.9, 启服务不用这个命令用service <name> start 
+:(
+
