@@ -28,6 +28,10 @@ export LC_ALL=en_US.UTF-8
 ```
 但是还没确认是否生效 XD
 
+在本地转码用
+```
+iconv -f gbk -t utf8 xx > yy
+```
 ## systemctl not found
 
 VPS装的CentOs6.9, 启服务不用这个命令用service <name> start 
