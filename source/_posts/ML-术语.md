@@ -4,6 +4,49 @@ date: 2018-01-02 11:38:29
 tags: ML
 ---
 
+<!-- MarkdownTOC -->
+
+- A
+	- accuracy 精度
+	- activation function 激活函数
+- B
+	- Bayesian 贝叶斯
+- C
+	- cross-entropy 交叉熵
+- D
+- E
+- F
+- G
+- H
+	- hidden layer 隐含层
+- I
+- J
+- K
+- L
+	- logistic regression 逻辑回归模型
+- M
+- N
+	- neuron 神经元
+- O
+	- overfitting 过拟合
+- P
+- Q
+- R
+	- ridge regression\(weight decay\)
+- S
+	- [softmax][无对应中文]
+- T
+- U
+- V
+- W
+- X
+- Y
+- Z
+
+<!-- /MarkdownTOC -->
+
+
+
 # A
 
 ## accuracy 精度
@@ -21,6 +64,9 @@ accuracy = (判断为'是'并预测准确的个数 + 判断为'否'并预测准�
 对输入[数组]进行加权求和, 并对其做一定处理后输出到下一层
 
 # B
+
+## Bayesian 贝叶斯
+
 
 # C
 
@@ -56,11 +102,14 @@ accuracy = (判断为'是'并预测准确的个数 + 判断为'否'并预测准�
 # O
 
 ## overfitting 过拟合
-对数据进行训练时对数据进行了过于精确的处理, 导致训练出的模型仅对训练数据有效, 不具普世性.
+对数据进行训练时对数据进行了过于精确的处理, 导致训练出的模型仅对训练数据有效, 不具普适性.
 
 # P
 # Q
 # R
+
+## ridge regression(weight decay)
+
 # S
 
 ## softmax [无对应中文]
