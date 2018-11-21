@@ -10,13 +10,7 @@ install:
   - npm install
   - npm install hexo-cli -g
 
-build_script:
-  - hexo generate
-
-artifacts:
-  - path: public
-
-on_success:
+before_build:
   - git config --global credential.helper store
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git config --global user.email "%GIT_USER_EMAIL%"
@@ -24,6 +18,14 @@ on_success:
   - git clone --depth 5 -q --branch=%TARGET_BRANCH% %STATIC_SITE_REPO% %TEMP%\static-site
   - git submodule init
   - git submodule update --recursive
+
+build_script:
+  - hexo generate
+
+artifacts:
+  - path: public
+
+on_success:
   - cd %TEMP%\static-site
   - del * /f /q
   - for /d %%p IN (*) do rmdir "%%p" /s /q
