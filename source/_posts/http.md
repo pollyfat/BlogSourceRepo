@@ -9,17 +9,20 @@ tags: Android
 无状态协议
 
 TCP/IP常用端口: 80, 但其他也可以
-
+```
             request
            --------->
 HOST                     CLIENT
            <--------- 
             response
+```
 
+```
 http://www.domain.com:1234/path/to/resource?a=b&x=y
 ----   -------------- ----                  -------
   |           |         |                       |
 protecol     host      port                   query
+```
 
 ### protecol:
 
@@ -57,15 +60,17 @@ protecol     host      port                   query
 - 5xx: 服务端错误
 
 ### http vs https
-
-    **http**                  **https**
+```
+    **http**            **https**
 
     HTTP                  HTTP
     TCP                   SSL or TLS
     IP                    TCP
                           IP                   
+```
 
 ### 请求过程
+```
                     
  +-----------+     B                     D  Process
  |    Host   |      +-----------+         +----------+
@@ -79,7 +84,7 @@ protecol     host      port                   query
  |  Client   |      |  connect  |         | request  |
  +-----------+    A +          C+---------+          +------->     ------->
                 DNS lookup                          E   response   F close
-
+```
 
 - A: 通过域名从dns服务器中找到相应ip地址
 - A->C: 和服务器建立链接
@@ -111,6 +116,7 @@ Body(opt)     Must match Content-Length
 
 ### 认证过程
 
+```
 Web Browser                                  Web Server
                     GET /some/file
 request      ------------------------------>
@@ -126,6 +132,7 @@ user&pwd
                           201 OK
               <------------------------------
                    <html>Hello..</html>
+```
 
 ### 缓存
 
@@ -144,8 +151,7 @@ Cache-control(Server)
 
 
 
-Reference
-
-- [Http-Part 1](https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177)
-- [Http-Part 2](https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-2--net-31155)
-- [Caching](https://betterexplained.com/articles/how-to-optimize-your-site-with-http-caching/)
+> Reference
+>- [Http-Part 1](https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177)
+>- [Http-Part 2](https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-2--net-31155)
+>- [Caching](https://betterexplained.com/articles/how-to-optimize-your-site-with-http-caching/)
