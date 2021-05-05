@@ -60,7 +60,4 @@ jobs:
       - name: Install dependencies
         run: |
           npm install hexo-cli -g
-
-      - name: Deploy hexo
-        run: |
           npx hexo d
