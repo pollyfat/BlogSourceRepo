@@ -1,12 +1,11 @@
 ---
 title: Android多线程机制
-date: 2020-3-15 21:15:36
+date: 2019-12-15 21:15:36
 tags: Java
 ---
 
-## 基本原理
 
-### Looper/Handler
+## Looper/Handler
 
 - 每个线程都有自己的Looper
 - Looper中的loop函数不断检查MessageQueue中是否有任务，如有任务则通过Handler中定义的处理函数handleMessage对Message进行处理。
@@ -38,6 +37,6 @@ Handler可通过post()向MessageQueue中添加新的Message。
 └─────────────────────────────────┘      └───────────────────────────┘
 ```
 
-### ThreadLocal
+## ThreadLocal
 
 同一个对象在不同的线程中指向的值不同
