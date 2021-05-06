@@ -1,16 +1,12 @@
 ---
-title: OkHttp 及 Retrofit 原理解析
+title: Retrofit 原理解析
 date: 2020-01-29 13:17:25
 tags: Http
 ---
 
-# Retrofit
+### 1. 动态代理：根据接口创建出具体实现类
 
-## 创建接口实现类
-
- 1. 动态代理：根据接口创建出具体实现类
-
- ```
+```java
   // 核心代码（Retrofit.class）
 
   public <T> T create(final Class<T> service) {
@@ -36,10 +32,11 @@ tags: Http
           }
         });
   }
- ```
- 2. 构建方法[loadServiceMethod(method)]
+```
 
- ```
+### 2. 构建方法[loadServiceMethod(method)]
+
+```java
  // 核心代码（HttpServiceMethod.class）：
 
   static <ResponseT, ReturnT> HttpServiceMethod<ResponseT, ReturnT> parseAnnotations(
@@ -102,9 +99,10 @@ tags: Http
     }
   }
  ```
- 3. 调用2中构建出的方法，返回 Call 对象 [invoke(args != null ? args : emptyArgs)]
 
- ```
+### 3. 调用2中构建出的方法，返回 Call 对象 [invoke(args != null ? args : emptyArgs)]
+
+```java
  	// 核心代码
 
  	（HttpServiceMethod.class）// 实际是CallAdapted对象
@@ -121,11 +119,13 @@ tags: Http
     	// 4. createCallAdapter(retrofit, method, adapterType, annotations);
       return callAdapter.adapt(call);
     }
- ```
-4. 构造CallAdapter [createCallAdapter(retrofit, method, adapterType, annotations)]
+```
+
+### 4. 构造CallAdapter [createCallAdapter(retrofit, method, adapterType, annotations)]
 
 	追溯 createCallAdapter 直到出现具体实现类：
-```
+
+```java
 	// 核心代码（DefaultCallAdapterFactory.class）
 
   @Override public @Nullable CallAdapter<?, ?> get(
@@ -158,9 +158,9 @@ tags: Http
   }
 ```
 
- 5. 拓展 Call
+### 5. 拓展 Call
 
- ```
+```java
  	// 核心代码（ExecutorCallbackCall.class）
 
     @Override public void enqueue(final Callback<T> callback) {
@@ -186,11 +186,11 @@ tags: Http
     }
  ```
 
- 6. 使用 callbackExecutor 将 Call 放入线程池运行 [new ExecutorCallbackCall<>(executor, call]
+### 6. 使用 callbackExecutor 将 Call 放入线程池运行 [new ExecutorCallbackCall<>(executor, call]
  
  追溯 callbackExecutor
 
- ```
+```java
    // 核心代码（retrofit2.Platform.Android）
    static final class Android extends Platform {
     Android() {
